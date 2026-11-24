@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-void playGame() {
+void playGame()
+{
     const int minimum = 1;
     const int maximum = 20;
     const int target = randomNumber(minimum, maximum);
@@ -12,24 +13,36 @@ void playGame() {
               << " and " << maximum << ".\n\n";
 
     int attemptsRemaining = 5;
-    while (true) {
+    while (true)
+    {
         std::cout << "Attempts remaining: " << attemptsRemaining << '\n';
         std::cout << "Your guess: ";
         int guess;
-        if (!(std::cin >> guess)) {
+        if (!(std::cin >> guess))
+        {
             std::cout << "\nNo integer read. Ending the game.\n";
             return;
         }
 
-        if (guess == target) {
+        if (guess == target)
+        {
             std::cout << "You win!\n";
             return;
         }
 
         --attemptsRemaining;
-        if (attemptsRemaining == 0) {
+        if (attemptsRemaining == 0)
+        {
             std::cout << "You lose! The number was " << target << ".\n";
             return;
+        }
+        if (guess < target)
+        {
+            std::cout << "Too low!\n\n";
+        }
+        else
+        {
+            std::cout << "Too high!\n\n";
         }
         std::cout << "Try again!\n\n";
     }
